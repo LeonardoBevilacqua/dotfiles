@@ -1,0 +1,6 @@
+[submodule "wezterm"]
+	path = wezterm
+	url = git@github.com:LeonardoBevilacqua/wezterm-config.git
+[submodule "nvim"]
+	path = nvim
+	url = git@github.com:LeonardoBevilacqua/nvShadow.git
