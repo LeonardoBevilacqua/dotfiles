@@ -4,3 +4,6 @@
 [submodule "nvim"]
 	path = nvim
 	url = git@github.com:LeonardoBevilacqua/nvShadow.git
+[submodule "nix-configs"]
+	path = nix-configs
+	url = git@github.com:LeonardoBevilacqua/nix-configs.git
