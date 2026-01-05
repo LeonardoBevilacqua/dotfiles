@@ -1,9 +1,12 @@
 [submodule "wezterm"]
 	path = wezterm
 	url = git@github.com:LeonardoBevilacqua/wezterm-config.git
+	branch = main
 [submodule "nvim"]
 	path = nvim
 	url = git@github.com:LeonardoBevilacqua/nvShadow.git
+	branch = main
 [submodule "nix-configs"]
 	path = nix-configs
 	url = git@github.com:LeonardoBevilacqua/nix-configs.git
+	branch = main
