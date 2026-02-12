@@ -17,12 +17,14 @@ set $right l
 # set $term foot
 set $term wezterm
 # Your preferred application launcher
-set $menu wmenu-run
-
+# set $menu wmenu-run
+ set $menu wmenu-run -f "JetBrainsMono Nerd Font 21"
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg  /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /usr/share/endeavouros/backgrounds/eos_wallpapers_community/neon_astronaut_endeavor.jpg fill
 #
 # Example configuration:
 #
@@ -85,7 +87,7 @@ input * {
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -f "JetBrainsMono Nerd Font 21" -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
