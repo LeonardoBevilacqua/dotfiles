@@ -1,0 +1,9 @@
+[general]
+import = ["one-dark.toml"]
+
+[window]
+opacity=0.95
+
+[font]
+normal={ family = "JetBrainsMono Nerd Font Mono", style = "Regular"}
+size=21
