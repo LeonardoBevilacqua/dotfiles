@@ -15,6 +15,11 @@ copy-data() {
 }
 
 read-proc() {
+    if [[ ! -f /proc/stat ]]; then
+        echo -e "\uf4bc NA"
+        exit 1
+    fi
+
     local key user nice system idle iowait
     local irq softirq steal guest guest_nice
     local busy value
