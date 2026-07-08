@@ -15,30 +15,43 @@ copy-data() {
 }
 
 read-proc() {
-    if [[ ! -f /proc/stat ]]; then
-        echo -e "\uf4bc NA"
-        exit 1
+    if [[ -f /proc/stat ]]; then
+        read-proc-linux
+    else
+        read-proc-mac
     fi
+}
 
+read-proc-linux() {
+    while read -r line; do
+        set-current $line
+    done < /proc/stat
+}
+
+read-proc-mac() {
+    while read -r line; do
+        set-current $line
+    done < <($HOME/dotfiles/tmux/mac)
+}
+
+set-current() {
     local key user nice system idle iowait
     local irq softirq steal guest guest_nice
     local busy value
 
-    while read -r key user nice system idle iowait \
-        irq softirq steal guest guest_nice; do
-        if [[ $key != cpu* ]]; then
-            continue
-        elif [[ $key != 'cpu' ]]; then
-            continue
-        fi
+    read -r key user nice system idle iowait \
+        irq softirq steal guest guest_nice <<< "$*"
 
-        busy=$((user + nice + system + irq + softirq + steal + guest + nice))
-        idle=$((idle + iowait))
+    if [[ $key != 'cpu' ]]; then
+        return
+    fi
 
-        value="$busy $idle"
+    busy=$((user + nice + system + irq + softirq + steal + guest + nice))
+    idle=$((idle + iowait))
 
-        current[$key]=$value
-    done < /proc/stat
+    value="$busy $idle"
+
+    current[$key]=$value
 }
 
 print-result() {
