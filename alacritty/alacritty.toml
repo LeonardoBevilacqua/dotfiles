@@ -9,4 +9,4 @@ dynamic_padding = true
 
 [font]
 normal={ family = "JetBrainsMono Nerd Font Mono", style = "Regular"}
-size=21
+#size=21
