@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+SINKS=$(pactl list short sinks | awk '{print $1, $2}')
+SINK=$(echo "$SINKS" | wmenu -l 5 -f "JetBrainsMono Nerd Font 16" -p "Audio output" | awk '{print $1}')
+if [[ -z "$SINK" ]]; then
+    exit
+fi
+pactl set-default-sink "$SINK"
